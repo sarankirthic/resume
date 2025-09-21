@@ -1,5 +1,5 @@
-from flask import Flask
-from flask import send_file
+from flask import Flask, send_file
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -16,4 +16,5 @@ def serve_resume():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=8000)
+    # app.run(port=8000)
