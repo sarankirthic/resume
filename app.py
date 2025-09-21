@@ -11,7 +11,7 @@ def hello_world():  # put application's code here
 
 @app.route('/')
 def serve_resume():
-    resume_path = 'pdf/sarankirthic.pdf'
+    resume_path = 'pdf/sarankirthic_V2.pdf'
     return send_file(resume_path, mimetype='application/pdf')
 
 
