@@ -82,6 +82,46 @@ WantedBy=multi-user.target
 
 ---
 
+## Building 
+
+1. create the following files
+
+    ```bash
+    pyproject.toml
+   
+    [build-system]
+    requires = ["setuptools", "wheel"]
+    build-backend = "setuptools.build_meta"
+    ```
+    
+    ```bash
+    setup.py
+   
+    from setuptools import setup
+    setup(
+    name='resume_app',
+    version='0.1',
+    py_modules=['app'],
+    install_requires=[
+        'flask',
+        'waitress',
+    ],
+    entry_points='''
+        [console_scripts]
+        resume-server=app:app
+    ''',
+    )
+    ```
+
+2. Command to build wheel
+    `python -m build --wheel`
+
+3. Copy this .whl file to another machine/server
+4. Create a virtual environment
+5. Run the following command `pip instal <file_name.whl>`
+
+---
+
 ## License
 
 This project is licensed under the MIT License.
